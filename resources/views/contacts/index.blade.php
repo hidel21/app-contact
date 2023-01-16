@@ -31,9 +31,7 @@
                    
                   @forelse ($contacts as $index => $contact)
                   @include('contacts._contact', ['contact' => $contact, 'index' => $index])
-                  
-                  @empty
-
+              @empty
                   @include('contacts._empty')
                   @endforelse
                   {{-- @each('contacts._contact', $contacts, 'contact', 'contacts._empty') --}}
