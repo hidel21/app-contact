@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('table_tasks', function (Blueprint $table) {
+        Schema::table('tasks', function (Blueprint $table) {
             $table->tinyInteger('priority')->default(1)->after('status');
         });
     }
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('table_tasks', function (Blueprint $table) {
+        Schema::table('tasks', function (Blueprint $table) {
             $table->dropColumn('priority');
         });
     }

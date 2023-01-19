@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('table_tasks', function (Blueprint $table) {
+        Schema::table('tasks', function (Blueprint $table) {
             $table->renameColumn('due_at', 'due_date');
         });
     }
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('table_tasks', function (Blueprint $table) {
+        Schema::table('tasks', function (Blueprint $table) {
             $table->renameColumn('due_date', 'due_at');
         });
     }
