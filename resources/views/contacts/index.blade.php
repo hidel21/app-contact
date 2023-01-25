@@ -16,6 +16,9 @@
               </div>
             <div class="card-body">
               @include('contacts._filter')
+              @if ($message = session('message'))
+                  <div class="alert alert-success">{{ $message }}</div>
+              @endif
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
@@ -28,26 +31,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                   
                   @forelse ($contacts as $index => $contact)
-                  @include('contacts._contact', ['contact' => $contact, 'index' => $index])
-              @empty
-                  @include('contacts._empty')
+                    @include('contacts._contact', ['contact' => $contact, 'index' => $index])
+                  @empty
+                    @include('contacts._empty')
                   @endforelse
                   {{-- @each('contacts._contact', $contacts, 'contact', 'contacts._empty') --}}
-                                      
-  
-  
-                 </tbody>
+                </tbody>
               </table> 
-
               {{ $contacts->withQueryString()->links() }}
-
-
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>    
-@endsection

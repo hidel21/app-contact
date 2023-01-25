@@ -28,6 +28,8 @@ Route::get('/', WelcomeController::class);
 Route::controller(ContactController::class)->group(function (){
     Route::get('/contacts', 'index')->name('contacts.index');
 
+    Route::post('/contacts', 'store')->name('contacts.store');
+
     Route::get('/contacts/create','create')->name('contacts.create');
     
     Route::get('/contacts/{id}', 'show')->name('contacts.show');
