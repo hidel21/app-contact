@@ -1,11 +1,10 @@
-<tr @if($loop->odd) class="table-primary" @endif>
-        <th scope="row">{{ $contacts->firstItem() + $index }}</th>
-        <td>{{ $contact->first_name }}</td>
-        <td>{{ $contact->last_name }}</td>
-        <td>{{$contact->email}}</td>
-        <td>{{$contact->company->name}}</td>
-        
-        <td width="150">
+<tr>
+<th scope="row">{{ $contacts->firstItem() + $index }}</th>
+<td>{{ $contact->first_name }}</td>
+<td>{{ $contact->last_name }}</td>
+<td>{{ $contact->email }}</td>
+<td>{{ $contact->company ? $contact->company->name : '' }}</td>
+<td width="150">
         
           @if ($showTrashButtons)
             <form action="{{ route('contacts.restore', $contact->id) }}" method="POST" style="display: inline">
